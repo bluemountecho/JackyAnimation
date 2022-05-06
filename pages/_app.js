@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '../src/theme';
-import './assets/app.scss'
+import './app.scss'
 
 export default function MyApp(props) {
     const { Component, pageProps } = props;

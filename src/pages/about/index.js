@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core'
 import { useRouter } from 'next/router'
 import styles from './style'
 import $ from 'jquery'
-import initBackground from '../../../pages/assets/app.js'
+import initBackground from '../../../pages/app.js'
 
 const useStyles = makeStyles(styles);
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
