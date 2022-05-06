@@ -1,0 +1,420 @@
+$pi: 3.14159265359;
+$_precision: 10;
+
+@function pow($base, $exp) {
+  $value: $base;
+  @if $exp > 1 {
+    @for $i from 2 through $exp {
+      $value: $value * $base;
+    }
+  }
+  @if $exp < 1 {
+    @for $i from 0 through -$exp {
+      $value: $value / $base;
+    }
+  }
+  @return $value;
+}
+
+@function fact($num) {
+  $fact: 1;
+  @if $num > 0 {
+    @for $i from 1 through $num {
+      $fact: $fact * $i;
+    }
+  }
+  @return $fact;
+}
+
+@function _to_unitless_rad($angle) {
+  @if unit($angle) == "deg" {
+    $angle: $angle / 180deg * $pi;
+  }
+  @if unit($angle) == "rad" {
+    $angle: $angle / 1rad;
+  }
+  @return $angle;
+}
+
+@function sin($angle) {
+  $a: _to_unitless_rad($angle);
+  $sin: $a;
+  @for $n from 1 through $_precision {
+    $sin: $sin + (pow(-1, $n) / fact(2 * $n + 1)) * pow($a, (2 * $n + 1));
+  }
+  @return $sin;
+}
+
+@function cos($angle) {
+  $a: _to_unitless_rad($angle);
+  $cos: 1;
+  @for $n from 1 through $_precision {
+    $cos: $cos + (pow(-1, $n) / fact(2 * $n)) * pow($a, 2 * $n);
+  }
+  @return $cos;
+}
+
+@function tan($angle) {
+  @return sin($angle) / cos($angle);
+}
+
+@function reminder($origin, $mod) {
+  $q: if(($origin / $mod) > 0, floor($origin / $mod), ceil($origin / $mod));
+  @return $origin - ($mod * $q);
+}
+
+@for $i from 0 to 360 {
+  $t: random(40000) + 5000;
+  $angle: $i - reminder($i, 4);
+  .stars-axis-#{$i} {
+    animation: anim#{$angle} #{$t}ms, fade#{random(10)} #{$t}ms;
+  }
+  .stars-fast-axis-#{$i} {
+    animation: anim#{$angle} #{$t/10}ms, fade#{random(10)} #{$t/10}ms;
+  }
+}
+
+@for $i from 1 to 11 {
+  $start: random(20) + 10;
+  $end: $start + 10;
+  @keyframes fade#{$i} {
+    #{$start + "%"} {
+      opacity: 0;
+    }
+    #{$end + "%"} {
+      opacity: 1;
+    }
+    80% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 0;
+    }
+  }
+}
+
+@for $i from 1 to 91 {
+  $a: $i * 4;
+  @keyframes anim#{$a} {
+    $angle: $pi * 2 * ($a / 360);
+    $y: 80 * sin($angle);
+    $x: 80 * cos($angle);
+    100% {
+      transform: translate(#{$x}vw, #{$y}vh);
+    }
+  }
+}
+
+* {
+  user-select: none;
+  cursor: none !important;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #000000;
+	border: 1px solid #555555;
+}
+
+::-webkit-scrollbar {
+	width: 5px;
+	background-color: #F5F5F5;
+}
+
+.mainContainer {
+  position: absolute;
+  background: black;
+  width: 100vw;
+  min-height: 100vh;
+  cursor: none !important;
+}
+
+#__next {
+  height: 100vh;
+}
+
+.stars-outer {
+  width: 100%;
+  height: 100%;
+  background: rgb(0, 0, 0);
+  background: radial-gradient(circle, rgba(0, 0, 0, 1) 0%, rgb(0, 10, 24) 100%);
+}
+
+#stars-sky {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  overflow: hidden;
+  z-index: 0;
+}
+
+#stars-sky::after {
+  content: "";
+  width: 60px;
+  height: 60px;
+  position: absolute;
+  background: black;
+  border-radius: 50%;
+  left: calc(50vw - 30px);
+  top: calc(50vh - 30px);
+}
+
+.stars-star {
+  opacity: 0;
+  transform-origin: 0, 0;
+  position: absolute;
+  background: white;
+  box-shadow: 0px 0px 20px 0px rgb(255, 255, 255);
+  border-radius: 100%;
+  animation-timing-function: linear, linear !important;
+  animation-iteration-count: infinite, infinite !important;
+  animation-delay: -30s, -30s !important;
+}
+
+.stars-size-1 {
+  width: 0.5px;
+  height: 0.5px;
+}
+
+.stars-size-2 {
+  width: 1px;
+  height: 1px;
+}
+
+.stars-size-3 {
+  width: 2px;
+  height: 2px;
+}
+
+.stars-size-4 {
+  width: 5px;
+  height: 5px;
+}
+
+.stars-size-5 {
+  width: 7px;
+  height: 7px;
+}
+
+.jbutton {
+  box-sizing: border-box;  
+  position: absolute;
+  width: 100px;
+  height: 38px;
+  border: 2px solid #FFFFFF;
+  border-radius: 5px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 16px;
+  color: #FFFFFF;
+  background: none;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.jbutton:hover {
+  color: black;
+  background: white;
+}
+
+
+.mouse {
+	position: absolute;
+	left: 50%;
+	width: 50%;
+	pointer-events: none;
+	background-color: #6bdfdf;
+	border-radius: 100%;
+	opacity: 0;
+	z-index: 9999;
+}
+
+/* Styles for the main cursor */
+.cursor {
+	width: 20px;
+	height: 20px;
+	-webkit-transform: translate(-10px,-10px);
+  transform: translate(-10px,-10px);
+  box-shadow: 0px 0px 50px 30px #00ffff;
+  background: white;
+}
+.cursor.hover {
+	width: 4px;
+	height: 4px;
+	-webkit-transform: translate(-2px,-2px);
+					transform: translate(-2px,-2px);
+	filter: blur(0px);
+}
+
+/* Styles for the followers */
+.follow-cursor.first {
+	width: 8px;
+	height: 8px;
+	-webkit-transform: translate(-4px,-4px);
+					transform: translate(-4px,-4px);
+	filter: blur(6px);
+	-webkit-transition: .5s linear;
+					transition: .5s linear;
+}
+.follow-cursor.second {
+	width: 20px;
+	height: 20px;
+	-webkit-transform: translate(-10px,-10px);
+					transform: translate(-10px,-10px);
+	filter: blur(10px);
+	-webkit-transition: .1s linear;
+					transition: .1s linear;
+}
+.follow-cursor.third {
+	width: 30px;
+	height: 30px;
+	-webkit-transform: translate(-15px,-15px);
+					transform: translate(-15px,-15px);
+	filter: blur(15px);
+	-webkit-transition: .15s linear;
+					transition: .15s linear;
+}
+.follow-cursor.fourth {
+	width: 4px;
+	height: 4px;
+	-webkit-transform: translate(-2px,-2px);
+					transform: translate(-2px,-2px);
+	filter: blur(4px);
+	-webkit-transition: .2s linear;
+					transition: .2s linear;
+}
+.follow-cursor.fifth {
+	width: 3px;
+	height: 3px;
+	-webkit-transform: translate(-1.5px,-1.5px);
+					transform: translate(-1.5px,-1.5px);
+	filter: blur(1px);
+	-webkit-transition: .25s linear;
+					transition: .25s linear;
+}
+.follow-cursor.hover {
+	width: 72px;
+	height: 72px;
+	-webkit-transform: translate(-36px,-36px);
+					transform: translate(-36px,-36px);
+	filter: blur(0px);
+	background: transparent;
+	border: 1px solid #00ffff;
+	border-radius: 0;
+}
+.follow-cursor.hover.second {
+	-webkit-transform: translate(-36px,-36px) rotate(72deg);
+					transform: translate(-36px,-36px) rotate(72deg);
+}
+.follow-cursor.hover.third {
+	-webkit-transform: translate(-36px,-36px) rotate(288deg);
+					transform: translate(-36px,-36px) rotate(288deg);
+}
+.follow-cursor.hover.fourth {
+	-webkit-transform: translate(-36px,-36px) rotate(144deg);
+					transform: translate(-36px,-36px) rotate(144deg);
+}
+.follow-cursor.hover.fifth {
+	-webkit-transform: translate(-36px,-36px) rotate(216deg);
+					transform: translate(-36px,-36px) rotate(216deg);
+}
+
+#loader-container, body > canvas {
+  left: 0px;
+  top: 0px;
+  position: fixed;
+  z-index: 100;
+}
+
+.sentence {
+  color: white;
+  position: absolute;
+  margin: auto;
+  left: 0px;
+  width: 100vw;
+  font-family: 'Roboto';
+  font-weight: 500;
+  text-align: center;
+  opacity: 0;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+.sentence span{
+  opacity: 0;
+  position: relative;
+  display: inline-block;
+  margin: auto;
+}
+.sentence span.active {
+  animation: bounceUp 300ms ease 0ms 1 normal both, neon2 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes bounceUp {
+  0% {
+    transform: translate3d(0px, 0px, 0px);
+    opacity: 0;
+  }
+  50% {
+    transform: translate3d(0px, -2px, 0px);
+    opacity: 0.7;
+  }
+  80% {
+    transform: translate3d(0px, 2px, 0px);
+    opacity: 1;
+  }
+  100%{
+    transform: translate3d(0px, 0px, 0px);
+    opacity: 1;
+  }
+}
+
+@keyframes neon2 {
+  from {
+    text-shadow: 0 0 1px #fff,
+      0 0 1px  #fff,
+      0 0 1px  #fff,
+      0 0 3px  #00ffff,
+      0 0 3px  #00ffff,
+      0 0 3px  #00ffff,
+      0 0 3px #00ffff,
+      0 0 3px #00ffff;
+  }
+  to {
+    text-shadow: 0 0 1px #fff,
+      0 0 1px #fff,
+      0 0 1px #fff,
+      0 0 2px #00aaaa,
+      0 0 2px #00aaaa,
+      0 0 2px #00aaaa,
+      0 0 2px #00aaaa,
+      0 0 2px #00aaaa;
+  }
+}
+
+// .sentence span.fire-text {
+//   opacity: 1;
+//   -webkit-animation: neon2 1.5s ease-in-out infinite alternate;
+//   -moz-animation: neon2 1.5s ease-in-out infinite alternate;
+//   animation: neon2 1.5s ease-in-out infinite alternate;
+// }

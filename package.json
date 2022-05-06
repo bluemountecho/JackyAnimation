@@ -1,0 +1,26 @@
+{
+  "name": "jacky_animation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/styles": "^4.11.5",
+    "jQuery": "^1.7.4",
+    "jquery": "^3.6.0",
+    "jsdom": "^19.0.0",
+    "next": "^12.1.6",
+    "node-sass": "^7.0.1",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
+    "sass": "^1.51.0"
+  }
+}
