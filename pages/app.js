@@ -9,6 +9,7 @@ function getCenter(sky) {
 }
   
 function getDot(x, y, group) {
+    if (typeof document == 'undefined') return
     const size = Math.round(Math.random() * 4 + 1)
     const dot = document.createElement('span')
     dot.classList.add('stars-star', `stars-fast-axis-${group}`, `stars-size-${size}`)
@@ -19,6 +20,7 @@ function getDot(x, y, group) {
 }
   
 export default function init() {
+    if (typeof document == 'undefined') return
     const sky = document.querySelector('#stars-sky')
     sky.innerHTML = ''
     for (let i = 1; i < 360; i++) {
