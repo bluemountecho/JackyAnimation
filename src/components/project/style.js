@@ -39,7 +39,6 @@ const styles = createStyles({
         backgroundPosition: 'center',
         overflow: 'hidden',
         pointerEvents: 'initial',
-        border: '2px solid white',
 
         '& img': {
             width: '100%',
@@ -58,7 +57,6 @@ const styles = createStyles({
         height: '30%',
         transition: '1s ease 0s',
         pointerEvents: 'initial',
-        border: '2px solid white',
 
         '& h3': {
             position: 'absolute',

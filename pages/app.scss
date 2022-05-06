@@ -176,7 +176,7 @@ body {
   transform-origin: 0, 0;
   position: absolute;
   background: white;
-  box-shadow: 0px 0px 20px 0px rgb(255, 255, 255);
+  box-shadow: 0px 0px 5px 2px rgb(255, 255, 255);
   border-radius: 100%;
   animation-timing-function: linear, linear !important;
   animation-iteration-count: infinite, infinite !important;
@@ -199,13 +199,13 @@ body {
 }
 
 .stars-size-4 {
-  width: 5px;
-  height: 5px;
+  width: 3px;
+  height: 3px;
 }
 
 .stars-size-5 {
-  width: 7px;
-  height: 7px;
+  width: 4px;
+  height: 4px;
 }
 
 .jbutton {
@@ -245,11 +245,11 @@ body {
 
 /* Styles for the main cursor */
 .cursor {
-	width: 20px;
-	height: 20px;
+	width: 10px;
+	height: 10px;
 	-webkit-transform: translate(-10px,-10px);
   transform: translate(-10px,-10px);
-  box-shadow: 0px 0px 50px 30px #00ffff;
+  box-shadow: 0px 0px 30px 15px #00ffff;
   background: white;
 }
 .cursor.hover {
@@ -410,6 +410,10 @@ h2 {
       0 0 2px #00aaaa,
       0 0 2px #00aaaa;
   }
+}
+
+#stats {
+  opacity: 0;
 }
 
 // .sentence span.fire-text {

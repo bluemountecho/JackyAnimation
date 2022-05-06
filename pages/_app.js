@@ -21,6 +21,8 @@ export default function MyApp(props) {
 
         window.loader.init()
         window.loader.animate()
+
+        $('#stats').remove()
     }, [])
 
     return (
