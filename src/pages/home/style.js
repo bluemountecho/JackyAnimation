@@ -14,7 +14,12 @@ const styles = createStyles({
             'width': '100%',
             'height': '100%',
         }
-    }
+    },
+
+    'helloButton': {
+        left: 'calc(50vw - 50px)',
+        top: '65vh',
+    },
 });
 
 export default styles;

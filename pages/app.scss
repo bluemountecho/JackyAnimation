@@ -353,11 +353,11 @@ body {
 }
 
 h1 {
-  font-size: 40px;
+  font-size: 4.5vh;
 }
 
 h2 {
-  font-size: 20px;
+  font-size: 2.5vh;
 }
 
 .sentence span{
@@ -367,7 +367,7 @@ h2 {
   margin: auto;
 }
 .sentence span.active {
-  animation: bounceUp 300ms ease 0ms 1 normal both, neon2 1.5s ease-in-out infinite alternate;
+  animation: bounceUp 100ms ease 0ms 1 normal both, neon2 1.5s ease-in-out infinite alternate;
 }
 
 @keyframes bounceUp {
@@ -390,26 +390,26 @@ h2 {
 }
 
 @keyframes neon2 {
-  from {
-    text-shadow: 0 0 1px #fff,
-      0 0 1px  #fff,
-      0 0 1px  #fff,
-      0 0 3px  #00ffff,
-      0 0 3px  #00ffff,
-      0 0 3px  #00ffff,
-      0 0 3px #00ffff,
-      0 0 3px #00ffff;
-  }
-  to {
-    text-shadow: 0 0 1px #fff,
-      0 0 1px #fff,
-      0 0 1px #fff,
-      0 0 2px #00aaaa,
-      0 0 2px #00aaaa,
-      0 0 2px #00aaaa,
-      0 0 2px #00aaaa,
-      0 0 2px #00aaaa;
-  }
+  // from {
+  //   text-shadow: 0 0 1px #fff,
+  //     0 0 1px  #fff,
+  //     0 0 1px  #fff,
+  //     0 0 3px  #00ffff,
+  //     0 0 3px  #00ffff,
+  //     0 0 3px  #00ffff,
+  //     0 0 3px #00ffff,
+  //     0 0 3px #00ffff;
+  // }
+  // to {
+  //   text-shadow: 0 0 1px #fff,
+  //     0 0 1px #fff,
+  //     0 0 1px #fff,
+  //     0 0 2px #00aaaa,
+  //     0 0 2px #00aaaa,
+  //     0 0 2px #00aaaa,
+  //     0 0 2px #00aaaa,
+  //     0 0 2px #00aaaa;
+  // }
 }
 
 #stats {
