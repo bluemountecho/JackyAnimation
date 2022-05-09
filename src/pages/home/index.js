@@ -116,6 +116,14 @@ function HomePage(props) {
                     flag = false
                 }
             });
+
+            $('body').bind('touchmove', function(e) { 
+                if (!flag) return
+                if ($(window).scrollTop() > 0) {
+                    router.push('/about')
+                    flag = false
+                }
+            });
         });
     }, [])
 

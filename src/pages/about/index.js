@@ -171,6 +171,17 @@ function AboutPage(props) {
                     flag = false
                 }
             });
+
+            $('body').bind('touchmove', function(e) { 
+                if (!flag) return
+                if ($(window).scrollTop() > 0) {
+                    router.push('/projects')
+                    flag = false
+                } else {
+                    router.push('/')
+                    flag = false
+                }
+            });
         });
     }, [])
 

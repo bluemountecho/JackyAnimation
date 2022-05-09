@@ -28,7 +28,13 @@ const styles = createStyles({
                 transformOrigin: '-30px -30px',
                 transform: 'scale(1.1)',
             }
-        }
+        },
+
+        [theme.breakpoints.down('500')]: {
+            width: '90vw',
+            height: '60vw',
+            marginBottom: '30px',
+        },
     },
 
     'image': {
@@ -44,7 +50,7 @@ const styles = createStyles({
             width: '100%',
             height: '100%',
             transition: '1s ease 0s',
-        }
+        },
     },
 
     'description': {
@@ -80,6 +86,31 @@ const styles = createStyles({
             fontFamily: 'Roboto',
             fontWeight: '400',
         },
+
+        [theme.breakpoints.down('1000')]: {
+            '& h3': {
+                fontSize: '11px',
+            },
+            
+            '& h4': {
+                fontSize: '11px',
+            },
+        },
+
+        [theme.breakpoints.down('500')]: {
+            width: '40%',
+            height: '40%',
+
+            '& h3': {
+                left: '10px',
+                top: '10px',
+            },
+            
+            '& h4': {
+                left: '10px',
+                bottom: '10px',
+            },
+        },
     },
 
     'arrow': {
@@ -91,7 +122,12 @@ const styles = createStyles({
         '& svg': {
             width: '2vw',
             height: '2vw',
-        }
+
+            [theme.breakpoints.down('500')]: {
+                width: '11px',
+                height: '11px',
+            },
+        },
     }
 });
 

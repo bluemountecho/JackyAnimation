@@ -23,14 +23,14 @@ export default function init() {
     if (typeof document == 'undefined') return
     const sky = document.querySelector('#stars-sky')
     sky.innerHTML = ''
-    for (let i = 1; i < 360; i++) {
+    for (let i = 1; i <= 360; i++) {
       const { x, y } = getCenter(sky)
       const dot = getDot(x, y, i)
       sky.appendChild(dot)
     }
 
     setTimeout(() => {
-        for (let i = 1; i < 360; i++) {
+        for (let i = 1; i <= 360; i++) {
             var elem = $('.stars-fast-axis-' + i)
 
             $(elem).removeClass('stars-fast-axis-' + i)

@@ -65,9 +65,13 @@ $_precision: 10;
 
 @for $i from 0 to 360 {
   $t: random(40000) + 5000;
-  $angle: $i - reminder($i, 4);
+  $angle: random(90) + 1;
+  $R: random(155) + 100;
+  $G: random(155) + 100;
+  $B: random(155) + 100;
   .stars-axis-#{$i} {
     animation: anim#{$angle} #{$t}ms, fade#{random(10)} #{$t}ms;
+    color: rgba($R, $G, $B, 1);
   }
   .stars-fast-axis-#{$i} {
     animation: anim#{$angle} #{$t/10}ms, fade#{random(10)} #{$t/10}ms;
@@ -87,7 +91,7 @@ $_precision: 10;
     80% {
       opacity: 1;
     }
-    90% {
+    92% {
       opacity: 0;
     }
   }
@@ -95,10 +99,10 @@ $_precision: 10;
 
 @for $i from 1 to 91 {
   $a: $i * 4;
-  @keyframes anim#{$a} {
+  @keyframes anim#{$i} {
     $angle: $pi * 2 * ($a / 360);
-    $y: 80 * sin($angle);
-    $x: 80 * cos($angle);
+    $y: 60 * sin($angle);
+    $x: 60 * cos($angle);
     100% {
       transform: translate(#{$x}vw, #{$y}vh);
     }
@@ -112,8 +116,8 @@ $_precision: 10;
 
 html,
 body {
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: calc(100vh + 1px);
   margin: 0;
   overflow-x: hidden;
 }
@@ -176,7 +180,6 @@ body {
   transform-origin: 0, 0;
   position: absolute;
   background: white;
-  box-shadow: 0px 0px 5px 2px rgb(255, 255, 255);
   border-radius: 100%;
   animation-timing-function: linear, linear !important;
   animation-iteration-count: infinite, infinite !important;
@@ -184,26 +187,31 @@ body {
 }
 
 .stars-size-1 {
+  box-shadow: 0px 0px 0.3px 0.15px;
   width: 0.5px;
   height: 0.5px;
 }
 
 .stars-size-2 {
+  box-shadow: 0px 0px 0.7px 0.35px;
   width: 1px;
   height: 1px;
 }
 
 .stars-size-3 {
+  box-shadow: 0px 0px 1.5px 0.75px;
   width: 2px;
   height: 2px;
 }
 
 .stars-size-4 {
+  box-shadow: 0px 0px 2.5px 1.25px;
   width: 3px;
   height: 3px;
 }
 
 .stars-size-5 {
+  box-shadow: 0px 0px 3px 1.5px;
   width: 4px;
   height: 4px;
 }
