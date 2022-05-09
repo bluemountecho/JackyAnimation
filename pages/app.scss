@@ -101,8 +101,8 @@ $_precision: 10;
   $a: $i * 4;
   @keyframes anim#{$i} {
     $angle: $pi * 2 * ($a / 360);
-    $y: 70 * sin($angle);
-    $x: 70 * cos($angle);
+    $y: 80 * sin($angle);
+    $x: 80 * cos($angle);
     100% {
       transform: translate(#{$x}vw, #{$y}vh);
     }
