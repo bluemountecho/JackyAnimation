@@ -64,11 +64,11 @@ $_precision: 10;
 }
 
 @for $i from 0 to 360 {
-  $t: random(40000) + 5000;
+  $t: random(20000) + 3000;
   $angle: random(90) + 1;
-  $R: random(155) + 100;
-  $G: random(155) + 100;
-  $B: random(155) + 100;
+  $R: random(105) + 150;
+  $G: random(105) + 150;
+  $B: random(105) + 150;
   .stars-axis-#{$i} {
     animation: anim#{$angle} #{$t}ms, fade#{random(10)} #{$t}ms;
     color: rgba($R, $G, $B, 1);
@@ -79,7 +79,7 @@ $_precision: 10;
 }
 
 @for $i from 1 to 11 {
-  $start: random(20) + 10;
+  $start: random(20) + 5;
   $end: $start + 10;
   @keyframes fade#{$i} {
     #{$start + "%"} {
@@ -187,15 +187,15 @@ body {
 }
 
 .stars-size-1 {
-  box-shadow: 0px 0px 0.3px 0.15px;
-  width: 0.5px;
-  height: 0.5px;
-}
-
-.stars-size-2 {
   box-shadow: 0px 0px 0.7px 0.35px;
   width: 1px;
   height: 1px;
+}
+
+.stars-size-2 {
+  box-shadow: 0px 0px 1px 0.5px;
+  width: 1.5px;
+  height: 1.5px;
 }
 
 .stars-size-3 {
@@ -205,15 +205,15 @@ body {
 }
 
 .stars-size-4 {
-  box-shadow: 0px 0px 2.5px 1.25px;
-  width: 3px;
-  height: 3px;
+  box-shadow: 0px 0px 2px 1px;
+  width: 2.5px;
+  height: 2.5px;
 }
 
 .stars-size-5 {
-  box-shadow: 0px 0px 3px 1.5px;
-  width: 4px;
-  height: 4px;
+  box-shadow: 0px 0px 2.5px 1.25px;
+  width: 3px;
+  height: 3px;
 }
 
 .jbutton {
