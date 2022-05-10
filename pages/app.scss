@@ -72,9 +72,12 @@ $_precision: 10;
   .stars-axis-#{$i} {
     animation: anim#{$angle} #{$t}ms, fade#{random(10)} #{$t}ms;
     color: rgba($R, $G, $B, 1);
+    background: rgba($R, $G, $B, 1);
   }
   .stars-fast-axis-#{$i} {
     animation: anim#{$angle} #{$t/10}ms, fade#{random(10)} #{$t/10}ms;
+    color: rgba($R, $G, $B, 1);
+    background: rgba($R, $G, $B, 1);
   }
 }
 
@@ -179,7 +182,6 @@ body {
   opacity: 0;
   transform-origin: 0, 0;
   position: absolute;
-  background: white;
   border-radius: 100%;
   animation-timing-function: linear, linear !important;
   animation-iteration-count: infinite, infinite !important;

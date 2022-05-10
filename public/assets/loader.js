@@ -52,7 +52,7 @@ $(document).ready(function () {
       $('body > canvas').remove()
       started = false
       destroy()
-    }, 1500)
+    }, 2000)
   }
   
   window.loader.animate = () => {

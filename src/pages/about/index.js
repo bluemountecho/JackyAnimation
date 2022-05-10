@@ -12,6 +12,7 @@ function AboutPage(props) {
     const classes = useStyles()
     const router = useRouter()
     var flag = false
+    var befTop = -1
 
     async function Animate(elem, data, time) {
         $(elem).animate(data, time)
@@ -174,13 +175,15 @@ function AboutPage(props) {
 
             $('body').bind('touchmove', function(e) { 
                 if (!flag) return
-                if ($(window).scrollTop() > 0) {
+                if ($(window).scrollTop() > 0 && befTop > 0) {
                     router.push('/projects')
                     flag = false
-                } else {
+                } else if ($(window).scrollTop() == 0 && befTop == 0) {
                     router.push('/')
                     flag = false
                 }
+
+                befTop = $(window).scrollTop()
             });
         });
     }, [])

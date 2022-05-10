@@ -40,6 +40,7 @@ function ProjectsPage(props) {
         },
     ]
     var flag = false
+    var befTop = -1
 
     async function Animate(elem, data, time) {
         $(elem).animate(data, time)
@@ -176,10 +177,12 @@ function ProjectsPage(props) {
 
             $('body').bind('touchmove', function(e) { 
                 if (!flag) return
-                if ($(window).scrollTop() == 0) {
+                if ($(window).scrollTop() == 0 && befTop == 0) {
                     router.push('/about')
                     flag = false
                 }
+
+                befTop = $(window).scrollTop()
             });
         });
 
