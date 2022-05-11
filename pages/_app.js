@@ -19,8 +19,10 @@ export default function MyApp(props) {
             });
         });
 
-        window.loader.init()
-        window.loader.animate()
+        $(document).ready(function () {
+            window.loader.init()
+            window.loader.animate()
+        })
 
         $('#stats').remove()
     }, [])
