@@ -112,9 +112,21 @@ $_precision: 10;
   }
 }
 
+@font-face {
+  font-family: Futural;
+  src: url("/assets/fonts/Futura Book font.ttf");
+}
+
+@font-face {
+  font-family: Futural;
+  src: url("/assets/fonts/Futura Bold font.ttf");
+  font-weight: bold;
+}
+
 * {
   user-select: none;
   cursor: none !important;
+  font-family: Futural !important;
 }
 
 html,
@@ -225,9 +237,9 @@ body {
   height: 38px;
   border: 2px solid #FFFFFF;
   border-radius: 5px;
-  font-family: 'Roboto';
+  font-family: 'Futural';
   font-style: normal;
-  font-weight: 500;
+  font-weight: bold;
   font-size: 16px;
   line-height: 16px;
   color: #FFFFFF;
@@ -356,8 +368,8 @@ body {
   margin: auto;
   left: 0px;
   width: 100vw;
-  font-family: 'Roboto';
-  font-weight: 500;
+  font-family: 'Futural';
+  font-weight: bold;
   text-align: center;
   opacity: 0;
 }

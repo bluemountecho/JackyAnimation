@@ -195,14 +195,18 @@ function AboutPage(props) {
         flag = false
     }
 
+    function goHome() {
+        router.push('/')
+    }
+
     return (
         <>
             <div className="mainContainer">
                 <div id="stars-sky"></div>
-                <div className={classes.logo} id="logo-div">
+                <div className={classes.logo} onClick={goHome} id="logo-div">
                     <LogoImage />
                 </div>
-                <div className={classes.logotext} id="logo-text">
+                <div className={classes.logotext} onClick={goHome} id="logo-text">
                     <LogoText />
                 </div>
                 <h1 className={"sentence " + classes.about}>LinkDAP is a boutique web development agency specializing in design, development, branding, and everything in between.</h1>

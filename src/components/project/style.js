@@ -72,8 +72,8 @@ const styles = createStyles({
             margin: '0px',
             fontSize: '1.5vw',
             lineHeight: '1.7vw',
-            fontFamily: 'Roboto',
-            fontWeight: '600',
+            fontFamily: 'Futural',
+            fontWeight: 'bold',
         },
         
         '& h4': {
@@ -83,17 +83,19 @@ const styles = createStyles({
             margin: '0px',
             fontSize: '0.8vw',
             lineHeight: '1vw',
-            fontFamily: 'Roboto',
-            fontWeight: '400',
+            fontFamily: 'Futural',
+            fontWeight: 'bold',
         },
 
         [theme.breakpoints.down('1000')]: {
             '& h3': {
-                fontSize: '11px',
+                fontSize: '14px',
+                lineHeight: '14px',
             },
             
             '& h4': {
-                fontSize: '11px',
+                fontSize: '12px',
+                lineHeight: '12px',
             },
         },
 

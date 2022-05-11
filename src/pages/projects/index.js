@@ -17,28 +17,33 @@ function ProjectsPage(props) {
     const projects = [
         {
             'image': '/images/project_1.avif',
-            'description': 'Project Name #1',
-            'client': 'Client #1'
+            'description': 'An immersive Spatial Audio Experience for Opera North',
+            'client': 'Opera North',
+            'link': 'https://www.example.com/project1',
         },
         {
             'image': '/images/project_2.avif',
-            'description': 'Project Name #2',
-            'client': 'Client #2'
+            'description': 'An immersive Spatial Audio Experience for Opera North',
+            'client': 'Opera North',
+            'link': 'https://www.example.com/project2',
         },
         {
             'image': '/images/project_3.avif',
-            'description': 'Project Name #3',
-            'client': 'Client #3'
+            'description': 'An immersive Spatial Audio Experience for Opera North',
+            'client': 'Opera North',
+            'link': 'https://www.example.com/project3',
         },
         {
             'image': '/images/project_4.avif',
-            'description': 'Project Name #4',
-            'client': 'Client #4'
+            'description': 'An immersive Spatial Audio Experience for Opera North',
+            'client': 'Opera North',
+            'link': 'https://www.example.com/project4',
         },
         {
             'image': '/images/project_5.avif',
-            'description': 'Project Name #5',
-            'client': 'Client #5'
+            'description': 'An immersive Spatial Audio Experience for Opera North',
+            'client': 'Opera North',
+            'link': 'https://www.example.com/project5',
         },
     ]
     var flag = false
@@ -203,19 +208,18 @@ function ProjectsPage(props) {
         })
     }, [])
 
-    function onHello() {
-        router.push('/about')
-        flag = false
+    function goHome() {
+        router.push('/')
     }
 
     return (
         <>
             <div className="mainContainer">
                 <div id="stars-sky"></div>
-                <div className={classes.logo} id="logo-div">
+                <div className={classes.logo} onClick={goHome} id="logo-div">
                     <LogoImage />
                 </div>
-                <div className={classes.logotext} id="logo-text">
+                <div className={classes.logotext} onClick={goHome} id="logo-text">
                     <LogoText />
                 </div>
                 <a href="mailto:support@gmail.com"><button className={"jbutton contact " + classes.contactButton}>CONTACT</button></a>
@@ -224,9 +228,11 @@ function ProjectsPage(props) {
                 </h2>
                 {projects.map((value, key) => {
                     return <Project
-                        image={projects[key].image}
-                        description={projects[key].description}
-                        client={projects[key].client}
+                        key={key}
+                        image={value.image}
+                        description={value.description}
+                        client={value.client}
+                        link={value.link}
                     />
                 })}
             </div>
