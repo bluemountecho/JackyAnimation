@@ -64,8 +64,8 @@ $_precision: 10;
 }
 
 @for $i from 0 to 360 {
-  $t: random(20000) + 3000;
-  $angle: random(90) + 1;
+  $t: random(80000) + 40000;
+  $angle: random(360);
   $R: random(105) + 150;
   $G: random(105) + 150;
   $B: random(105) + 150;
@@ -75,14 +75,14 @@ $_precision: 10;
     background: rgba($R, $G, $B, 1);
   }
   .stars-fast-axis-#{$i} {
-    animation: anim#{$angle} #{$t/10}ms, fade#{random(10)} #{$t/10}ms;
+    animation: anim#{$angle} #{$t/50}ms, fade#{random(10)} #{$t/50}ms;
     color: rgba($R, $G, $B, 1);
     background: rgba($R, $G, $B, 1);
   }
 }
 
 @for $i from 1 to 11 {
-  $start: random(20) + 5;
+  $start: 5;
   $end: $start + 10;
   @keyframes fade#{$i} {
     #{$start + "%"} {
@@ -94,18 +94,64 @@ $_precision: 10;
     80% {
       opacity: 1;
     }
-    92% {
+    99% {
       opacity: 0;
     }
   }
 }
 
-@for $i from 1 to 91 {
-  $a: $i * 4;
-  @keyframes anim#{$i} {
+@for $i from 0 to 91 {
+  @keyframes anim#{$i * 4} {
+    $a: $i * 4;
+    $divider: 16.0;
+    $angle: $pi * 2 * ($a * 4 / 360);
+    $y: 70 * sin($angle);
+    $x: 70 * cos($angle);
+    30% {
+      transform: translate(#{$x/$divider}vw, #{$y/$divider}vh);
+    }
+    100% {
+      transform: translate(#{$x}vw, #{$y}vh);
+    }
+  }
+
+  @keyframes anim#{$i * 4 + 1} {
+    $a: $i * 4 + 1;
+    $divider: 8.0;
     $angle: $pi * 2 * ($a / 360);
-    $y: 80 * sin($angle);
-    $x: 80 * cos($angle);
+    $y: 70 * sin($angle);
+    $x: 70 * cos($angle);
+    20% {
+      transform: translate(#{$x/$divider}vw, #{$y/$divider}vh);
+    }
+    100% {
+      transform: translate(#{$x}vw, #{$y}vh);
+    }
+  }
+  
+  @keyframes anim#{$i * 4 + 2} {
+    $a: $i * 4 + 2;
+    $divider: 4.0;
+    $angle: $pi * 2 * ($a / 360);
+    $y: 70 * sin($angle);
+    $x: 70 * cos($angle);
+    10% {
+      transform: translate(#{$x/$divider}vw, #{$y/$divider}vh);
+    }
+    100% {
+      transform: translate(#{$x}vw, #{$y}vh);
+    }
+  }
+  
+  @keyframes anim#{$i * 4 + 3} {
+    $a: $i * 4 + 3;
+    $divider: 2.0;
+    $angle: $pi * 2 * ($a / 360);
+    $y: 70 * sin($angle);
+    $x: 70 * cos($angle);
+    5% {
+      transform: translate(#{$x/$divider}vw, #{$y/$divider}vh);
+    }
     100% {
       transform: translate(#{$x}vw, #{$y}vh);
     }
@@ -126,13 +172,13 @@ $_precision: 10;
 * {
   user-select: none;
   cursor: none !important;
-  font-family: Futural !important;
+  font-family: Roboto !important;
 }
 
 html,
 body {
   width: 100vw;
-  height: calc(100vh + 1px);
+  height: 100vh;
   margin: 0;
   overflow-x: hidden;
 }
@@ -179,16 +225,16 @@ body {
   z-index: 0;
 }
 
-#stars-sky::after {
-  content: "";
-  width: 60px;
-  height: 60px;
-  position: absolute;
-  background: black;
-  border-radius: 50%;
-  left: calc(50vw - 30px);
-  top: calc(50vh - 30px);
-}
+// #stars-sky::after {
+//   content: "";
+//   width: 60px;
+//   height: 60px;
+//   position: absolute;
+//   background: black;
+//   border-radius: 50%;
+//   left: calc(50vw - 30px);
+//   top: calc(50vh - 30px);
+// }
 
 .stars-star {
   opacity: 0;
@@ -233,15 +279,15 @@ body {
 .jbutton {
   box-sizing: border-box;  
   position: absolute;
-  width: 100px;
-  height: 38px;
+  width: 130px;
+  height: 48px;
   border: 2px solid #FFFFFF;
   border-radius: 5px;
   font-family: 'Futural';
   font-style: normal;
   font-weight: bold;
-  font-size: 16px;
-  line-height: 16px;
+  font-size: 22px;
+  line-height: 22px;
   color: #FFFFFF;
   background: none;
   cursor: pointer;

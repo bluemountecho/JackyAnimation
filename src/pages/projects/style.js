@@ -60,7 +60,7 @@ const styles = createStyles({
     'contactButton': {
         position: 'absolute',
         right: '70px',
-        top: '40px',
+        top: '50px',
         [theme.breakpoints.down('500')]: {
             right: '20px',
         },

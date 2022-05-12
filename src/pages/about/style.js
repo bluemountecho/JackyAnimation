@@ -4,10 +4,10 @@ import theme from '../../theme'
 const styles = createStyles({
     'logo': {
         'position': 'absolute',
-        'width': '30vh',
-        'height': '30vh',
-        'top': '25vh',
-        'left': 'calc(50vw - 15vh)',
+        'width': '40vh',
+        'height': '40vh',
+        'top': '20vh',
+        'left': 'calc(50vw - 20vh)',
         'opacity': '0',
 
         '& > svg': {
@@ -32,7 +32,7 @@ const styles = createStyles({
         top: 'calc(40vh - 50px)',
         padding: '0px 15vw',
         [theme.breakpoints.down('1000')]: {
-            top: 'calc(30vh)',
+            top: 'calc(35vh)',
             fontSize: '3vw',
         },
         [theme.breakpoints.down('500')]: {
@@ -42,9 +42,9 @@ const styles = createStyles({
     },
 
     'projectButton': {
-        left: 'calc(50vw - 75px)',
+        left: 'calc(50vw - 100px)',
         top: '65vh',
-        width: '150px',
+        width: '200px',
         [theme.breakpoints.down('1000')]: {
             top: 'calc(100vh - 100px)',
         },
@@ -52,7 +52,7 @@ const styles = createStyles({
 
     'contactButton': {
         right: '70px',
-        top: '40px',
+        top: '50px',
         [theme.breakpoints.down('500')]: {
             right: '20px',
         },

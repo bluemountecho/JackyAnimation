@@ -4,10 +4,10 @@ import theme from '../../theme'
 const styles = createStyles({
     'logo': {
         'position': 'absolute',
-        'width': '30vh',
-        'height': '30vh',
-        'top': '25vh',
-        'left': 'calc(50vw - 15vh)',
+        'width': '40vh',
+        'height': '40vh',
+        'top': '20vh',
+        'left': 'calc(50vw - 20vh)',
         'opacity': '0',
 
         '& > svg': {
@@ -17,7 +17,7 @@ const styles = createStyles({
     },
 
     'helloButton': {
-        left: 'calc(50vw - 50px)',
+        left: 'calc(50vw - 65px)',
         top: '65vh',
     },
 });

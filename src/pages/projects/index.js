@@ -45,8 +45,6 @@ function ProjectsPage(props) {
             'link': 'https://www.example.com/project5',
         },
     ]
-    var flag = false
-    var befTop = -1
 
     async function Animate(elem, data, time) {
         $(elem).animate(data, time)
@@ -99,58 +97,11 @@ function ProjectsPage(props) {
         FadeInAnimation($('.project-container'), '+', '-')
         await FadeInAnimation($('.jbutton.projects'), '+', '-')
         logoAnimation()
-
-        $('#logo-text').css('opacity', 1)
-
-        await Animate($('#logo-text'), {
-            trans: 1,
-            }, {
-            step: function(now, fx) {
-                $(this).css('transform', 'scale(' + (now * 1.2) + ')')
-            },
-            duration: 300,
-            easing: "linear",
-        })
-
-        Animate($('#logo-text'), {
-            trans: 1,
-            }, {
-            step: function(now, fx) {
-                $(this).css('transform', 'scale(' + (1 + (1 - now) * 0.2) + ')')
-            },
-            duration: 100,
-            easing: "linear",
-        })
-
-        flag = true
     }
 
     useEffect(() => {
         initBackground()
-        // window.loader.init()
-        // window.loader.animate()
         setTimeout(init, 300)
-
-        $(document).ready(function() {
-            $('body').bind('mousewheel', function(e) {
-                if (!flag) return
-                if (window.scrollY != 0) return
-                if(e.originalEvent.wheelDelta / 120 > 0) {
-                    router.push('/about')
-                    flag = false
-                }
-            });
-
-            $('body').bind('touchmove', function(e) { 
-                if (!flag) return
-                if ($(window).scrollTop() == 0 && befTop == 0) {
-                    router.push('/about')
-                    flag = false
-                }
-
-                befTop = $(window).scrollTop()
-            });
-        });
 
         var width = window.innerWidth
         var height = window.innerHeight
@@ -178,9 +129,6 @@ function ProjectsPage(props) {
                 <div className={classes.logo} onClick={goHome} id="logo-div">
                     <LogoImage1 />
                 </div>
-                {/* <div className={classes.logotext} onClick={goHome} id="logo-text">
-                    <LogoText />
-                </div> */}
                 <a href="mailto:support@gmail.com"><button className={"jbutton contact " + classes.contactButton}>CONTACT</button></a>
                 <h2 className={"sentence " + classes.about}>
                     We specialize in creating platform agnostic web apps, custom CMS and Ecommerce themes, server administration, data migration and management, site migration and maintenance, branding, UX/UI design, and project mtanagement.

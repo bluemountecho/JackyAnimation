@@ -5,7 +5,6 @@ import styles from './style'
 import $ from 'jquery'
 import initBackground from '../../../pages/app.js'
 import LogoImage from '../../components/logoImage'
-import LogoText from '../../components/logoText'
 
 const useStyles = makeStyles(styles);
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
@@ -13,8 +12,6 @@ const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 function AboutPage(props) {
     const classes = useStyles()
     const router = useRouter()
-    var flag = false
-    var befTop = -1
 
     async function Animate(elem, data, time) {
         $(elem).animate(data, time)
@@ -66,12 +63,12 @@ function AboutPage(props) {
         await FadeInAnimation($('.jbutton.projects'), '+', '-')
 
         // await logoAnimation()
-        if (window.innerWidth <= 1000) {
+        if (window.innerWidth <= 500) {
             await Animate($('#logo-div'), {
                 left: '20px',
                 top: '30px',
-                width: '60px',
-                height: '60px',
+                width: '90px',
+                height: '90px',
             }, 500)
         } else {
             await Animate($('#logo-div'), {
@@ -83,78 +80,17 @@ function AboutPage(props) {
         }
 
         $('#logo-div img').attr('src', '/assets/images/logo1.png')
-        
         FadeInAnimation($('.sentence'), '-', '+')
-
-        // $('.sentence').css('opacity', 1)
-        $('#logo-text').css('opacity', 1)
-
         logoAnimation()
-        // window.loader.triggerCharacters()
-        setTimeout(() => {
-            $('.sentence span').addClass('fire-text')
-        }, 4000)
-
-        await Animate($('#logo-text'), {
-            trans: 1,
-            }, {
-            step: function(now, fx) {
-                $(this).css('transform', 'scale(' + (now * 1.2) + ')')
-            },
-            duration: 300,
-            easing: "linear",
-        })
-
-        Animate($('#logo-text'), {
-            trans: 1,
-            }, {
-            step: function(now, fx) {
-                $(this).css('transform', 'scale(' + (1 + (1 - now) * 0.2) + ')')
-            },
-            duration: 100,
-            easing: "linear",
-        })
-
-        flag = true
     }
 
     useEffect(() => {
         initBackground()
-        // window.loader.init()
-        // window.loader.animate()
-        // window.loader.setUpCharacters()
         setTimeout(init, 300)
-
-        $(document).ready(function(){
-            $('body').bind('mousewheel', function(e) {
-                if (!flag) return
-                if(e.originalEvent.wheelDelta / 120 < 0) {
-                    router.push('/projects')
-                    flag = false
-                } else {
-                    router.push('/')
-                    flag = false
-                }
-            });
-
-            $('body').bind('touchmove', function(e) { 
-                if (!flag) return
-                if ($(window).scrollTop() > 0 && befTop > 0) {
-                    router.push('/projects')
-                    flag = false
-                } else if ($(window).scrollTop() == 0 && befTop == 0) {
-                    router.push('/')
-                    flag = false
-                }
-
-                befTop = $(window).scrollTop()
-            });
-        });
     }, [])
 
     function onProjects() {
         router.push('/projects')
-        flag = false
     }
 
     function goHome() {
@@ -168,9 +104,6 @@ function AboutPage(props) {
                 <div className={classes.logo} onClick={goHome} id="logo-div">
                     <LogoImage />
                 </div>
-                {/* <div className={classes.logotext} onClick={goHome} id="logo-text">
-                    <LogoText />
-                </div> */}
                 <h1 className={"sentence " + classes.about}>LinkDAP is a boutique web development agency specializing in design, development, branding, and everything in between.</h1>
                 <button className={"jbutton projects " + classes.projectButton} onClick={onProjects}>VIEW PROJECTS</button>
                 <a href="mailto:support@gmail.com"><button className={"jbutton contact " + classes.contactButton}>CONTACT</button></a>

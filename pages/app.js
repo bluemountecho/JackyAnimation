@@ -36,5 +36,5 @@ export default function init() {
             $(elem).removeClass('stars-fast-axis-' + i)
             $(elem).addClass('stars-axis-' + i)
         }
-    }, 100)
+    }, 1000)
 }

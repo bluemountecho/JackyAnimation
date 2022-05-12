@@ -36,78 +36,14 @@ function HomePage(props) {
     }
 
     async function init() {
-        var timeUnit = 150
-
         FadeInAnimation($('#logo-div'), '-', '+')
         await FadeInAnimation($('.jbutton'), '+', '-')
-
-        await Animate($('#logo-div #logo-part-0'), {
-            trans: 1,
-            }, {
-            step: function(now, fx) {
-                $(this).attr('transform', 'translate(0, -' + (now * 100.0) + ')')
-            },
-            duration: timeUnit,
-            easing: "linear",
-        })
-
-        Animate($('#logo-div #logo-part-0'), {
-            trans: 1,
-            }, {
-            step: function(now, fx) {
-                $(this).attr('transform', 'translate(0, -' + ((1 - now) * 100.0) + ')')
-            },
-            duration: timeUnit,
-            easing: "linear",
-        })
-
-        await Animate($('#logo-div #logo-part-1'), {
-            trans: 1,
-            }, {
-            step: function(now, fx) {
-                $(this).attr('transform', 'translate(0, -' + (now * 50.0) + ')')
-            },
-            duration: timeUnit,
-            easing: "linear",
-        })
-
-        Animate($('#logo-div #logo-part-1'), {
-            trans: 1,
-            }, {
-            step: function(now, fx) {
-                $(this).attr('transform', 'translate(0, -' + ((1 - now) * 50.0) + ')')
-            },
-            duration: timeUnit,
-            easing: "linear",
-        })
-
-        await Animate($('#logo-div #logo-part-2'), {
-            trans: 1,
-            }, {
-            step: function(now, fx) {
-                $(this).attr('transform', 'translate(0, -' + (now * 30.0) + ')')
-            },
-            duration: timeUnit,
-            easing: "linear",
-        })
-
-        await Animate($('#logo-div #logo-part-2'), {
-            trans: 1,
-            }, {
-            step: function(now, fx) {
-                $(this).attr('transform', 'translate(0, -' + ((1 - now) * 30.0) + ')')
-            },
-            duration: timeUnit,
-            easing: "linear",
-        })
 
         flag = true
     }
 
     useEffect(() => {
         initBackground()
-        // window.loader.init()
-        // window.loader.animate()
         setTimeout(init, 300)
 
         $(document).ready(function(){
@@ -117,16 +53,6 @@ function HomePage(props) {
                     router.push('/about')
                     flag = false
                 }
-            });
-
-            $('body').bind('touchmove', function(e) { 
-                if (!flag) return
-                if ($(window).scrollTop() > 0 && befTop > 0) {
-                    router.push('/about')
-                    flag = false
-                }
-
-                befTop = $(window).scrollTop()
             });
         });
     }, [])
