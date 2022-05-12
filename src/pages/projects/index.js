@@ -5,8 +5,7 @@ import styles from './style'
 import $ from 'jquery'
 import initBackground from '../../../pages/app.js'
 import Project from '../../components/project'
-import LogoImage from '../../components/logoImage'
-import LogoText from '../../components/logoText'
+import LogoImage1 from '../../components/logoImage1'
 
 const useStyles = makeStyles(styles);
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
@@ -70,63 +69,23 @@ function ProjectsPage(props) {
     }
 
     async function logoAnimation() {
-        var timeUnit = 300
+        var timeUnit = 100
 
-        await Animate($('#logo-div #logo-part-0'), {
+        await Animate($('#logo-div'), {
             trans: 1,
             }, {
             step: function(now, fx) {
-                $(this).attr('transform', 'translate(0, -' + (now * 100.0) + ')')
+                $(this).css('transform', 'scale(' + (now * 1.2) + ')')
             },
             duration: timeUnit,
             easing: "linear",
         })
 
-        Animate($('#logo-div #logo-part-0'), {
+        await Animate($('#logo-div'), {
             trans: 1,
             }, {
             step: function(now, fx) {
-                $(this).attr('transform', 'translate(0, -' + ((1 - now) * 100.0) + ')')
-            },
-            duration: timeUnit,
-            easing: "linear",
-        })
-
-        await Animate($('#logo-div #logo-part-1'), {
-            trans: 1,
-            }, {
-            step: function(now, fx) {
-                $(this).attr('transform', 'translate(0, -' + (now * 50.0) + ')')
-            },
-            duration: timeUnit,
-            easing: "linear",
-        })
-
-        Animate($('#logo-div #logo-part-1'), {
-            trans: 1,
-            }, {
-            step: function(now, fx) {
-                $(this).attr('transform', 'translate(0, -' + ((1 - now) * 50.0) + ')')
-            },
-            duration: timeUnit,
-            easing: "linear",
-        })
-
-        await Animate($('#logo-div #logo-part-2'), {
-            trans: 1,
-            }, {
-            step: function(now, fx) {
-                $(this).attr('transform', 'translate(0, -' + (now * 30.0) + ')')
-            },
-            duration: timeUnit,
-            easing: "linear",
-        })
-
-        await Animate($('#logo-div #logo-part-2'), {
-            trans: 1,
-            }, {
-            step: function(now, fx) {
-                $(this).attr('transform', 'translate(0, -' + ((1 - now) * 30.0) + ')')
+                $(this).css('transform', 'scale(' + ((1 - now) * 0.2 + 1) + ')')
             },
             duration: timeUnit,
             easing: "linear",
@@ -217,11 +176,11 @@ function ProjectsPage(props) {
             <div className="mainContainer">
                 <div id="stars-sky"></div>
                 <div className={classes.logo} onClick={goHome} id="logo-div">
-                    <LogoImage />
+                    <LogoImage1 />
                 </div>
-                <div className={classes.logotext} onClick={goHome} id="logo-text">
+                {/* <div className={classes.logotext} onClick={goHome} id="logo-text">
                     <LogoText />
-                </div>
+                </div> */}
                 <a href="mailto:support@gmail.com"><button className={"jbutton contact " + classes.contactButton}>CONTACT</button></a>
                 <h2 className={"sentence " + classes.about}>
                     We specialize in creating platform agnostic web apps, custom CMS and Ecommerce themes, server administration, data migration and management, site migration and maintenance, branding, UX/UI design, and project mtanagement.

@@ -4,11 +4,12 @@ import theme from '../../theme'
 const styles = createStyles({
     'logo': {
         'position': 'absolute',
-        'width': '50px',
-        'height': '50px',
+        'width': '90px',
+        'height': '90px',
         'top': '30px',
         'left': '70px',
         'opacity': '0',
+        'transform': 'scale(0)',
 
         '& > svg': {
             'width': '100%',

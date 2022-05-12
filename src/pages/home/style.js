@@ -5,8 +5,8 @@ const styles = createStyles({
     'logo': {
         'position': 'absolute',
         'width': '30vh',
-        'height': 'calc(30vh + 100px)',
-        'top': 'calc(25vh - 100px)',
+        'height': '30vh',
+        'top': '25vh',
         'left': 'calc(50vw - 15vh)',
         'opacity': '0',
 

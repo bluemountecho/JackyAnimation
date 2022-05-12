@@ -37,63 +37,23 @@ function AboutPage(props) {
     }
 
     async function logoAnimation() {
-        var timeUnit = 300
+        var timeUnit = 100
 
-        await Animate($('#logo-div #logo-part-0'), {
+        await Animate($('#logo-div'), {
             trans: 1,
             }, {
             step: function(now, fx) {
-                $(this).attr('transform', 'translate(0, -' + (now * 100.0) + ')')
+                $(this).css('transform', 'scale(' + (now * 1.2) + ')')
             },
             duration: timeUnit,
             easing: "linear",
         })
 
-        Animate($('#logo-div #logo-part-0'), {
+        await Animate($('#logo-div'), {
             trans: 1,
             }, {
             step: function(now, fx) {
-                $(this).attr('transform', 'translate(0, -' + ((1 - now) * 100.0) + ')')
-            },
-            duration: timeUnit,
-            easing: "linear",
-        })
-
-        await Animate($('#logo-div #logo-part-1'), {
-            trans: 1,
-            }, {
-            step: function(now, fx) {
-                $(this).attr('transform', 'translate(0, -' + (now * 50.0) + ')')
-            },
-            duration: timeUnit,
-            easing: "linear",
-        })
-
-        Animate($('#logo-div #logo-part-1'), {
-            trans: 1,
-            }, {
-            step: function(now, fx) {
-                $(this).attr('transform', 'translate(0, -' + ((1 - now) * 50.0) + ')')
-            },
-            duration: timeUnit,
-            easing: "linear",
-        })
-
-        await Animate($('#logo-div #logo-part-2'), {
-            trans: 1,
-            }, {
-            step: function(now, fx) {
-                $(this).attr('transform', 'translate(0, -' + (now * 30.0) + ')')
-            },
-            duration: timeUnit,
-            easing: "linear",
-        })
-
-        await Animate($('#logo-div #logo-part-2'), {
-            trans: 1,
-            }, {
-            step: function(now, fx) {
-                $(this).attr('transform', 'translate(0, -' + ((1 - now) * 30.0) + ')')
+                $(this).css('transform', 'scale(' + ((1 - now) * 0.2 + 1) + ')')
             },
             duration: timeUnit,
             easing: "linear",
@@ -106,21 +66,23 @@ function AboutPage(props) {
         await FadeInAnimation($('.jbutton.projects'), '+', '-')
 
         // await logoAnimation()
-        if (window.innerWidth <= 500) {
+        if (window.innerWidth <= 1000) {
             await Animate($('#logo-div'), {
                 left: '20px',
                 top: '30px',
-                width: '50px',
-                height: '50px',
+                width: '60px',
+                height: '60px',
             }, 500)
         } else {
             await Animate($('#logo-div'), {
                 left: '70px',
                 top: '30px',
-                width: '50px',
-                height: '50px',
+                width: '90px',
+                height: '90px',
             }, 500)
         }
+
+        $('#logo-div img').attr('src', '/assets/images/logo1.png')
         
         FadeInAnimation($('.sentence'), '-', '+')
 
@@ -206,9 +168,9 @@ function AboutPage(props) {
                 <div className={classes.logo} onClick={goHome} id="logo-div">
                     <LogoImage />
                 </div>
-                <div className={classes.logotext} onClick={goHome} id="logo-text">
+                {/* <div className={classes.logotext} onClick={goHome} id="logo-text">
                     <LogoText />
-                </div>
+                </div> */}
                 <h1 className={"sentence " + classes.about}>LinkDAP is a boutique web development agency specializing in design, development, branding, and everything in between.</h1>
                 <button className={"jbutton projects " + classes.projectButton} onClick={onProjects}>VIEW PROJECTS</button>
                 <a href="mailto:support@gmail.com"><button className={"jbutton contact " + classes.contactButton}>CONTACT</button></a>
