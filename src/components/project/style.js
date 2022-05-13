@@ -72,8 +72,8 @@ const styles = createStyles({
             margin: '0px',
             fontSize: '1.5vw',
             lineHeight: '1.7vw',
-            fontFamily: 'Futural',
-            fontWeight: 'bold',
+            fontFamily: 'Roboto',
+            fontWeight: '500',
         },
         
         '& h4': {
@@ -83,8 +83,8 @@ const styles = createStyles({
             margin: '0px',
             fontSize: '0.8vw',
             lineHeight: '1vw',
-            fontFamily: 'Futural',
-            fontWeight: 'bold',
+            fontFamily: 'Roboto',
+            fontWeight: '500',
         },
 
         [theme.breakpoints.down('1000')]: {
