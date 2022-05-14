@@ -3,7 +3,6 @@ import { makeStyles } from '@material-ui/core'
 import { useRouter } from 'next/router'
 import styles from './style'
 import $ from 'jquery'
-import initBackground from '../../../pages/app.js'
 import LogoImage from '../../components/logoImage'
 
 const useStyles = makeStyles(styles);
@@ -13,7 +12,6 @@ function HomePage(props) {
     const classes = useStyles()
     const router = useRouter()
     var flag = false
-    var befTop = -1
 
     async function Animate(elem, data, time) {
         $(elem).animate(data, time)
@@ -43,7 +41,11 @@ function HomePage(props) {
     }
 
     useEffect(() => {
-        initBackground()
+        $(document).ready(function () {
+            window.loader.init()
+            window.loader.animate()
+        })
+
         setTimeout(init, 300)
 
         $(document).ready(function(){
@@ -65,7 +67,6 @@ function HomePage(props) {
     return (
         <>
             <div className="mainContainer">
-                <div id="stars-sky"></div>
                 <div className={classes.logo} id="logo-div">
                     <LogoImage />
                 </div>

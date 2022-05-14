@@ -85,7 +85,12 @@ function AboutPage(props) {
     }
 
     useEffect(() => {
-        initBackground()
+        $(document).ready(function () {
+            window.loader.init()
+            window.loader.animate()
+        })
+
+        // initBackground()
         setTimeout(init, 300)
     }, [])
 
@@ -100,7 +105,7 @@ function AboutPage(props) {
     return (
         <>
             <div className="mainContainer">
-                <div id="stars-sky"></div>
+                {/* <div id="stars-sky"></div> */}
                 <div className={classes.logo} onClick={goHome} id="logo-div">
                     <LogoImage />
                 </div>
