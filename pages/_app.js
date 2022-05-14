@@ -11,7 +11,7 @@ export default function MyApp(props) {
     const { Component, pageProps } = props;
     var datas = []
 
-    for (var i = 0; i < 300; i ++) {
+    for (var i = 0; i < 200; i ++) {
         datas.push(i)
     }
 
