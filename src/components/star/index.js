@@ -23,7 +23,7 @@ function Star(props) {
             // 'top': y + 'px',
             'width': Radius / 2,
             'height': Radius / 2,
-            'boxShadow': '0px 0px ' + (Radius) + 'px ' + (Radius / 2) + 'px ' + Color + ', 0px 0px ' + (Radius * 3) + 'px ' + (Radius) + 'px ' + Color,
+            'boxShadow': '0px 0px ' + (Radius) + 'px ' + (Radius / 2) + 'px ' + Color + ', 0px 0px ' + (Radius * 2) + 'px ' + (Radius) + 'px ' + Color,
         })
     }
 
@@ -32,7 +32,7 @@ function Star(props) {
         Radius += SpeedR
 
         Speed += Acc
-        SpeedR += Acc / 300.0
+        SpeedR += Acc / 700.0
         
         var tmpX = X + Distance * Math.cos(Angle)
         var tmpY = Y + Distance * Math.sin(Angle)
@@ -71,8 +71,8 @@ function Star(props) {
 
         if (isFirst) {
             if (tmp > 0.95) Radius = 1
-            else if (tmp > 0.8) Radius = 0.5
-            else Radius = 0.2
+            else if (tmp > 0.8) Radius = 0.7
+            else Radius = 0.3
         } else {
             Radius = 0.3
         }

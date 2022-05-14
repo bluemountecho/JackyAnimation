@@ -11,7 +11,7 @@ export default function MyApp(props) {
     const { Component, pageProps } = props;
     var datas = []
 
-    for (var i = 0; i < 200; i ++) {
+    for (var i = 0; i < 300; i ++) {
         datas.push(i)
     }
 
@@ -44,7 +44,7 @@ export default function MyApp(props) {
             <ThemeProvider theme={theme}>
                 <div id="stars-sky">
                 {datas.map(value => {
-                    return <Star idx={value} />
+                    return <Star key={value} idx={value} />
                 })}
                 </div>
                 <CssBaseline />
