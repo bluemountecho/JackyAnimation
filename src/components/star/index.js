@@ -32,7 +32,7 @@ function Star(props) {
         Radius += SpeedR
 
         Speed += Acc
-        SpeedR += Acc / 100.0
+        SpeedR += Acc / 300.0
         
         var tmpX = X + Distance * Math.cos(Angle)
         var tmpY = Y + Distance * Math.sin(Angle)
@@ -70,17 +70,17 @@ function Star(props) {
         var tmp = Math.random()
 
         if (isFirst) {
-            if (tmp > 0.95) Radius = 3
-            else if (tmp > 0.8) Radius = 2
-            else Radius = 1
+            if (tmp > 0.95) Radius = 1
+            else if (tmp > 0.8) Radius = 0.5
+            else Radius = 0.2
         } else {
-            Radius = 0.5
+            Radius = 0.3
         }
 
         Distance = 0
         Speed = Math.random() * 0.1 + 0.05
         SpeedR = Math.random() / 1000.0
-        Acc = Math.random() / 500.0
+        Acc = (Math.random() + 0.3) / 1000.0
 
         moveStar()
     }
