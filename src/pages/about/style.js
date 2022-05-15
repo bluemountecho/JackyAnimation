@@ -46,7 +46,12 @@ const styles = createStyles({
         top: '65vh',
         width: '200px',
         [theme.breakpoints.down('1000')]: {
+            left: 'calc(50vw - 90px)',
             top: 'calc(100vh - 100px)',
+            width: '180px',
+        },
+        [theme.breakpoints.down('500')]: {
+            top: 'calc(20vh + 90vw)',
         },
     },
 

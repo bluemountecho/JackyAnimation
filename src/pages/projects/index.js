@@ -111,7 +111,7 @@ function ProjectsPage(props) {
         var width = window.innerWidth
         var height = window.innerHeight
 
-        $('body').mousemove(function (e) {
+        $('.project-container').mousemove(function (e) {
             var x = e.originalEvent.x
             var y = e.originalEvent.y
             var offsetX = Math.abs(x - width / 2) / width
@@ -119,7 +119,11 @@ function ProjectsPage(props) {
             var signX = x - width / 2 > 0 ? '-' : ''
             var signY = y - height / 2 > 0 ? '-' : ''
             
-            $('.project-container').css('transform', 'translate(' + signX + '' + (offsetX * 20) + 'px,' + signY + '' + (offsetY * 20) + 'px)')
+            $(this).css('transform', 'translate(' + signX + '' + (offsetX * 20) + 'px,' + signY + '' + (offsetY * 20) + 'px)')
+        })
+
+        $('.project-container').mouseout(function (e) {
+            $(this).css('transform', 'translate(0px, 0px)')
         })
     }, [])
 

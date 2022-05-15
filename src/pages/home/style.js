@@ -17,7 +17,7 @@ const styles = createStyles({
     },
 
     'helloButton': {
-        left: 'calc(50vw - 65px)',
+        left: 'calc(50vw - 60px)',
         top: '65vh',
     },
 });

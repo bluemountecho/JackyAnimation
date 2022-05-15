@@ -40,7 +40,7 @@ const styles = createStyles({
         marginTop: '200px',
         marginBottom: '50px',
         fontSize: '1.2vw',
-        textAlign: 'justify',
+        textAlign: 'left',
         marginLeft: '20vw',
 
         [theme.breakpoints.down('1000')]: {
