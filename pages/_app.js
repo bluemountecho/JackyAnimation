@@ -28,8 +28,6 @@ export default function MyApp(props) {
         $('#stats').remove()
     }, [])
 
-    console.log(datas)
-
     return (
         <React.Fragment>
             <Head>
